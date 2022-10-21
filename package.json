@@ -1,0 +1,31 @@
+{
+    "name": "@wpazderski/kvapi-tests",
+    "version": "1.0.0",
+    "description": "End-to-end tests for kvapi-server and kvapi-client",
+    "author": "Witold Pazderski",
+    "license": "MIT",
+    "homepage": "https://github.com/wpazderski/kvapi-tests#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wpazderski/kvapi-tests.git"
+    },
+    "bugs": {
+        "url": "https://github.com/wpazderski/kvapi-tests/issues"
+    },
+    "scripts": {
+        "start-server": "cd ../kvapi-server && npm start",
+        "cy:open": "cypress open",
+        "cy:run": "cypress run",
+        "test": "cross-env START_SERVER_AND_TEST_INSECURE=1 KVAPI_TEST_MODE=1 start-server-and-test start-server https-get://localhost:23501 cy:run"
+    },
+    "devDependencies": {
+        "@types/chai-as-promised": "^7.1.5",
+        "@wpazderski/kvapi-client": "git+https://github.com/wpazderski/kvapi-client.git",
+        "@wpazderski/kvapi-types": "git+https://github.com/wpazderski/kvapi-types.git",
+        "chai-as-promised": "^7.1.1",
+        "cross-env": "^7.0.3",
+        "cypress": "^10.10.0",
+        "start-server-and-test": "^1.14.0",
+        "typescript": "^4.8.4"
+    }
+}
